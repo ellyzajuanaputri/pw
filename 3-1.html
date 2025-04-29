@@ -1,0 +1,37 @@
+<html>
+<head>
+<meta>
+  <title>sesi 3 Styling CSS</title>
+  <style>
+    section{border:1px solid black;}
+    body{margin:0;}
+input{ color:black; background:purple; width : 100%;}
+    #username{background:purple; margin:10px; }
+    #sandi{background:yellow;padding : 5px 2px 3px 4px;}
+.col-1-2{width:50%;}
+.col-1-3{width:33.33%;}
+ @media screen and (max-width: 700px) { [class*='col-'] { width: 50%; } }
+ @media screen and (max-width: 450px) { [class*='col-'] { width: 100%; }}
+  </style>
+</head>
+  <body>
+<header></header>
+    <main>
+    <section id="paragraf" class="col-1-3">  <b>Hallo</b> <i> Pemrograman Web</i> </section>
+   <section id="table" class="col-1-3"> 
+   <table border="1">
+    <tr><td>1</td><td>2</td> </tr>
+    <tr><td>3</td> <td>4</td></tr>
+   </table>
+   </section>
+   <section id="form" class="col-1-3">  
+   <form>
+     <label>username</label><input id="username" type="text">
+    <label>sandi</label> <input  id="sandi" type="password">
+     <input type="submit" value="login">
+   </form>
+   </section>
+    </main>
+  <footer></footer>
+  </body>
+</html>
