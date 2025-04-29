@@ -1,63 +1,64 @@
-<!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Flexbox</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Comic Sans, sans-serif;
-            background-color: #f4f4f4;
-        }
-        .container {
-            display: flex;
-            gap: 10px;
-            padding: 20px;
-        }
-        .item {
-            background: plum;
-            padding: 20px;
-            text-align: center;
-            border-radius: 5px;
-            flex-grow: 1;
-            flex-basis: 150px;
-        }
-        .item.large {
-            flex-grow: 2;
-        }
-        .item img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                flex-direction: column;
-            }
-        }
-    </style>
+  <title> Pertemuan 3 Penggunaan dan Implementasi CSS</title>
+  <link rel="stylesheet" href="3-2.css">
+  <link rel="stylesheet" href="3-3.css">
 </head>
-<body>
-    <div class="container">
-        <div class="item">
-            <img src="https://pin.it/5JXGUbXUN" alt="Gambar 1">
-            Item 1
-        </div>
-        <div class="item large">
-            <img src="https://pin.it/5JXGUbXUN" alt="Gambar 2">
-            Item 2 (Lebih Besar)
-        </div>
-        <div class="item">
-            <img src="https://pin.it/5JXGUbXUN" alt="Gambar 3">
-            Item 3
-        </div>
-    </div>
-</body>
+  <body>
+<header><a href="ipwija.ac.id"> Home </a></header>
+<main> Hiiii Everyone!!!
+<br/>
+</main id="main" class="main">
+<section>Welcome</section>
+
+    <section id="gambar" >
+    <img src="README.md" height="150" width="150">
+    </section>
+
+<section id="form" class="col-1-2">
+<form>
+<label>Username:</label><input type="text">
+<label>Password:</label><input type="password">
+<label>Warna:</label><input type="color">
+<label>Dropdown:</label>
+        <select>
+          <option>1</option>
+          <option>2</option>
+        </select>
+<input type="submit" value="cancel">
+        <button> login</button>
+      </form>
+    </section>
+
+    <section id="paragraf">
+<p>
+<h1> Pertemuan 2</h1>
+<h2> HTML dasar </h2>
+pertemuan 2, dasar HTML membuat paragraf <br/> sederhana dengan huruf <i>miring </i>,<b>Tebal</b>
+</p>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+  </ul>
+  <ol>
+    <li>satu</li>
+    <li>dua</li>
+  </ol>
+</section>
+<section id="table">
+<h2>table</h2>
+<table border="1">
+<thead>
+  <tr><th>jan </th><th>feb </th></tr>
+</thead>
+<tbody>
+<tr><td>1 </td><td>2 </td></tr>
+<tr><td>3 </td><td>4 </td></tr>
+</tbody>
+</table>
+</section>
+
+
+<footer>@2025</footer>
+  </body>
 </html>
