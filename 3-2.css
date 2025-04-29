@@ -1,0 +1,38 @@
+* { box-sizing: border-box; }
+body{margin: 0;
+font-family:Helvetica,Arial,sans-serif;
+font-size:  14px;
+line-height: 1.5;
+letter-spacing: 0.5px;
+}
+
+input,
+select
+{
+width: 100%;
+padding:8px; margin:5px 0;
+border: 1px solid grey;
+border-radius:5px;
+display: block;
+}
+
+button,
+input[type=submit],
+input[type=button]
+{
+color:white; background:skyblue;
+border: 1px solid transparent;
+cursor:pointer;
+align-items: center;
+}
+
+button:hover,input[type=submit]:hover,input[type=button]:hover{background:aqua; }
+
+ul {margin: 0; padding: 0; list-style-type:none;}
+li {padding: 0; left:0; }
+
+table {border-collapse:collapse; border-spacing:0; width:100%; color: #000;}
+table th, table td { border:none; text-align:left; padding:8px; }
+table tr { background:#f8f8f8; }
+table tr:nth-child(even){ background:#fff;}
+table th { height:37px; }
