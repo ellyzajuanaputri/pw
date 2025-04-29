@@ -20,12 +20,12 @@
             padding: 20px;
         }
         .item {
-            background: plum;
             padding: 20px;
             text-align: center;
             border-radius: 5px;
             flex-grow: 1;
             flex-basis: 150px;
+            color: #333;
         }
         .item.large {
             flex-grow: 2;
@@ -37,6 +37,16 @@
             margin-bottom: 10px;
         }
 
+        .item1 {
+            background-color: #f9c5d1;
+        }
+        .item2 {
+            background-color: #c5d8f9;
+        }
+        .item3 {
+            background-color: #d1f9c5;
+        }
+
         @media (max-width: 600px) {
             .container {
                 flex-direction: column;
@@ -46,15 +56,15 @@
 </head>
 <body>
     <div class="container">
-        <div class="item">
+        <div class="item item1">
             <img src="https://i.pinimg.com/736x/56/33/b9/5633b976a243c4b57f6ce8fcfdb65e2e.jpg" alt="Gambar 1">
             Item 1
         </div>
-        <div class="item large">
+        <div class="item large item2">
             <img src="https://i.pinimg.com/736x/53/af/08/53af08816e2300f740e47bc4f4e1ee3a.jpg" alt="Gambar 2">
             Item 2 (Lebih Besar)
         </div>
-        <div class="item">
+        <div class="item item3">
             <img src="https://i.pinimg.com/736x/56/33/b9/5633b976a243c4b57f6ce8fcfdb65e2e.jpg" alt="Gambar 3">
             Item 3
         </div>
