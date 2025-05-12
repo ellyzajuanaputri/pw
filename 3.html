@@ -6,25 +6,25 @@
   <title>Pertemuan 3 Penggunaan dan Implementasi CSS</title>
   <link rel="stylesheet" href="3-2.css">
   <link rel="stylesheet" href="3-3.css">
-
   <style>
     /* Reset dasar */
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
       font-family: Arial, sans-serif;
       padding: 20px;
-      line-height: 1.6;
+      background-color: #fefefe;
+      color: #333;
     }
 
     header, footer {
       background-color: #f2f2f2;
-      padding: 10px;
       text-align: center;
+      padding: 15px;
       margin-bottom: 20px;
     }
 
@@ -33,9 +33,11 @@
     }
 
     section {
+      background-color: #fafafa;
+      padding: 15px;
       margin-bottom: 20px;
-      padding: 10px;
-      background-color: #f9f9f9;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
     }
 
     #gambar img {
@@ -49,13 +51,26 @@
       gap: 10px;
     }
 
-    input, select, button {
-      padding: 5px;
-      margin-top: 5px;
+    label {
+      font-weight: bold;
     }
 
-    #paragraf p {
-      margin-bottom: 10px;
+    input, select, button {
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #306fd0;
     }
 
     #table table {
@@ -64,24 +79,28 @@
     }
 
     #table th, #table td {
+      border: 1px solid #ddd;
       padding: 10px;
-      border: 1px solid #ccc;
       text-align: center;
     }
 
-    /* Media Query untuk tampilan mobile */
+    ul, ol {
+      padding-left: 20px;
+    }
+
+    /* Responsif untuk layar kecil */
     @media (max-width: 600px) {
       body {
         padding: 10px;
       }
 
-      form {
-        gap: 5px;
+      section {
+        padding: 10px;
       }
 
       #gambar img {
-        width: 100px;
         height: 100px;
+        width: 100px;
       }
     }
   </style>
@@ -101,22 +120,22 @@
   </section>
 
   <section id="gambar">
-    <img src="README.md" alt="Gambar" height="150" width="150">
+    <img src="README.md" alt="Gambar Ilustrasi" height="150" width="150">
   </section>
 
   <section id="form" class="col-1-2">
     <form>
-      <label>Username:</label>
-      <input type="text">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username">
 
-      <label>Password:</label>
-      <input type="password">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password">
 
-      <label>Warna:</label>
-      <input type="color">
+      <label for="color">Warna:</label>
+      <input type="color" id="color" name="color">
 
-      <label>Dropdown:</label>
-      <select>
+      <label for="dropdown">Dropdown:</label>
+      <select id="dropdown" name="dropdown">
         <option>1</option>
         <option>2</option>
       </select>
@@ -127,10 +146,10 @@
   </section>
 
   <section id="paragraf">
-    <h1>Pertemuan 2</h1>
-    <h2>HTML Dasar</h2>
+    <h2>Pertemuan 2</h2>
+    <h3>HTML Dasar</h3>
     <p>
-      Pertemuan 2 membahas dasar HTML seperti membuat paragraf sederhana dengan huruf 
+      Pertemuan 2 membahas dasar HTML, seperti membuat paragraf sederhana dengan huruf 
       <i>miring</i> dan <b>tebal</b>.
     </p>
 
@@ -146,7 +165,7 @@
   </section>
 
   <section id="table">
-    <h2>Table</h2>
+    <h2>Tabel Bulanan</h2>
     <table>
       <thead>
         <tr>
@@ -167,7 +186,9 @@
     </table>
   </section>
 
-  <footer>&copy; 2025</footer>
+  <footer>
+    &copy; 2025
+  </footer>
 
 </body>
 </html>
