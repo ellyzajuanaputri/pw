@@ -1,196 +1,64 @@
-<!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pertemuan 3 Penggunaan dan Implementasi CSS</title>
+  <title> Pertemuan 3 Penggunaan dan Implementasi CSS</title>
   <link rel="stylesheet" href="3-2.css">
   <link rel="stylesheet" href="3-3.css">
-  <style>
-    /* Reset dasar */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background-color: #fefefe;
-      color: #333;
-    }
-
-    header, footer {
-      background-color: #f2f2f2;
-      text-align: center;
-      padding: 15px;
-      margin-bottom: 20px;
-    }
-
-    main {
-      margin-bottom: 20px;
-    }
-
-    section {
-      background-color: #fafafa;
-      padding: 15px;
-      margin-bottom: 20px;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-    }
-
-    #gambar img {
-      display: block;
-      margin: 10px auto;
-      border-radius: 8px;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    label {
-      font-weight: bold;
-    }
-
-    input, select, button {
-      padding: 8px;
-      margin-top: 5px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
-
-    button {
-      background-color: #4285f4;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #306fd0;
-    }
-
-    #table table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    #table th, #table td {
-      border: 1px solid #ddd;
-      padding: 10px;
-      text-align: center;
-    }
-
-    ul, ol {
-      padding-left: 20px;
-    }
-
-    /* Responsif untuk layar kecil */
-    @media (max-width: 600px) {
-      body {
-        padding: 10px;
-      }
-
-      section {
-        padding: 10px;
-      }
-
-      #gambar img {
-        height: 100px;
-        width: 100px;
-      }
-    }
-  </style>
 </head>
-<body>
+  <body>
+<header><a href="ipwija.ac.id"> Home </a></header>
+<main> Hiiii Everyone!!!
+<br/>
+</main id="main" class="main">
+<section>Welcome</section>
 
-  <header>
-    <a href="https://ipwija.ac.id">Home</a>
-  </header>
+    <section id="gambar" >
+    <img src="edu.png" height="200" width="200">
+    </section>
 
-  <main id="main" class="main">
-    <h1>Hiiii Everyone!!!</h1>
-  </main>
+<section id="form" class="col-1-2">
+<form>
+<label>Username:</label><input type="text">
+<label>Password:</label><input type="password">
+<label>Warna:</label><input type="color">
+<label>Dropdown:</label>
+        <select>
+          <option>1</option>
+          <option>2</option>
+        </select>
+<input type="submit" value="cancel">
+        <button> login</button>
+      </form>
+    </section>
 
-  <section>
-    <h2>Welcome</h2>
-  </section>
+    <section id="paragraf">
+<p>
+<h1> Pertemuan 2</h1>
+<h2> HTML dasar </h2>
+pertemuan 2, dasar HTML membuat paragraf <br/> sederhana dengan huruf <i>miring </i>,<b>Tebal</b>
+</p>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+  </ul>
+  <ol>
+    <li>satu</li>
+    <li>dua</li>
+  </ol>
+</section>
+<section id="table">
+<h2>table</h2>
+<table border="1">
+<thead>
+  <tr><th>jan </th><th>feb </th></tr>
+</thead>
+<tbody>
+<tr><td>1 </td><td>2 </td></tr>
+<tr><td>3 </td><td>4 </td></tr>
+</tbody>
+</table>
+</section>
 
-  <section id="gambar">
-    <img src="edu.png" alt="Logo Edukasi" height="150" width="150">
-    <img src="README.md" alt="Gambar README" height="150" width="150">
-  </section>
 
-  <section id="form" class="col-1-2">
-    <form>
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username">
-
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password">
-
-      <label for="color">Warna:</label>
-      <input type="color" id="color" name="color">
-
-      <label for="dropdown">Dropdown:</label>
-      <select id="dropdown" name="dropdown">
-        <option>1</option>
-        <option>2</option>
-      </select>
-
-      <input type="submit" value="Cancel">
-      <button type="button">Login</button>
-    </form>
-  </section>
-
-  <section id="paragraf">
-    <h2>Pertemuan 2</h2>
-    <h3>HTML Dasar</h3>
-    <p>
-      Pertemuan 2 membahas dasar HTML, seperti membuat paragraf sederhana dengan huruf 
-      <i>miring</i> dan <b>tebal</b>.
-    </p>
-
-    <ul>
-      <li>1</li>
-      <li>2</li>
-    </ul>
-
-    <ol>
-      <li>Satu</li>
-      <li>Dua</li>
-    </ol>
-  </section>
-
-  <section id="table">
-    <h2>Tabel Bulanan</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Jan</th>
-          <th>Feb</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>4</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <footer>
-    &copy; 2025
-  </footer>
-
-</body>
+<footer>@2025</footer>
+  </body>
 </html>
