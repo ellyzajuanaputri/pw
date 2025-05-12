@@ -1,64 +1,173 @@
-<html>
+<!DOCTYPE html>
+<html lang="id">
 <head>
-  <title> Pertemuan 3 Penggunaan dan Implementasi CSS</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pertemuan 3 Penggunaan dan Implementasi CSS</title>
   <link rel="stylesheet" href="3-2.css">
   <link rel="stylesheet" href="3-3.css">
+
+  <style>
+    /* Reset dasar */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    header, footer {
+      background-color: #f2f2f2;
+      padding: 10px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    main {
+      margin-bottom: 20px;
+    }
+
+    section {
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #f9f9f9;
+    }
+
+    #gambar img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    input, select, button {
+      padding: 5px;
+      margin-top: 5px;
+    }
+
+    #paragraf p {
+      margin-bottom: 10px;
+    }
+
+    #table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    #table th, #table td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    /* Media Query untuk tampilan mobile */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+
+      form {
+        gap: 5px;
+      }
+
+      #gambar img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  </style>
 </head>
-  <body>
-<header><a href="ipwija.ac.id"> Home </a></header>
-<main> Hiiii Everyone!!!
-<br/>
-</main id="main" class="main">
-<section>Welcome</section>
+<body>
 
-    <section id="gambar" >
-    <img src="README.md" height="150" width="150">
-    </section>
+  <header>
+    <a href="https://ipwija.ac.id">Home</a>
+  </header>
 
-<section id="form" class="col-1-2">
-<form>
-<label>Username:</label><input type="text">
-<label>Password:</label><input type="password">
-<label>Warna:</label><input type="color">
-<label>Dropdown:</label>
-        <select>
-          <option>1</option>
-          <option>2</option>
-        </select>
-<input type="submit" value="cancel">
-        <button> login</button>
-      </form>
-    </section>
+  <main id="main" class="main">
+    <h1>Hiiii Everyone!!!</h1>
+  </main>
 
-    <section id="paragraf">
-<p>
-<h1> Pertemuan 2</h1>
-<h2> HTML dasar </h2>
-pertemuan 2, dasar HTML membuat paragraf <br/> sederhana dengan huruf <i>miring </i>,<b>Tebal</b>
-</p>
-  <ul>
-    <li>1</li>
-    <li>2</li>
-  </ul>
-  <ol>
-    <li>satu</li>
-    <li>dua</li>
-  </ol>
-</section>
-<section id="table">
-<h2>table</h2>
-<table border="1">
-<thead>
-  <tr><th>jan </th><th>feb </th></tr>
-</thead>
-<tbody>
-<tr><td>1 </td><td>2 </td></tr>
-<tr><td>3 </td><td>4 </td></tr>
-</tbody>
-</table>
-</section>
+  <section>
+    <h2>Welcome</h2>
+  </section>
 
+  <section id="gambar">
+    <img src="README.md" alt="Gambar" height="150" width="150">
+  </section>
 
-<footer>@2025</footer>
-  </body>
+  <section id="form" class="col-1-2">
+    <form>
+      <label>Username:</label>
+      <input type="text">
+
+      <label>Password:</label>
+      <input type="password">
+
+      <label>Warna:</label>
+      <input type="color">
+
+      <label>Dropdown:</label>
+      <select>
+        <option>1</option>
+        <option>2</option>
+      </select>
+
+      <input type="submit" value="Cancel">
+      <button type="button">Login</button>
+    </form>
+  </section>
+
+  <section id="paragraf">
+    <h1>Pertemuan 2</h1>
+    <h2>HTML Dasar</h2>
+    <p>
+      Pertemuan 2 membahas dasar HTML seperti membuat paragraf sederhana dengan huruf 
+      <i>miring</i> dan <b>tebal</b>.
+    </p>
+
+    <ul>
+      <li>1</li>
+      <li>2</li>
+    </ul>
+
+    <ol>
+      <li>Satu</li>
+      <li>Dua</li>
+    </ol>
+  </section>
+
+  <section id="table">
+    <h2>Table</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Jan</th>
+          <th>Feb</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>4</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>&copy; 2025</footer>
+
+</body>
 </html>
