@@ -97,19 +97,19 @@
     <img src="gambar1.jpg" alt="Hydrating Facial Mist">
     <div><strong>Hydrating Facial Mist</strong></div>
     <div class="counter">
-      <button class="minus" data-id="hydrating facial mist">-</button>
-      <span id="qty-hydrating facial mist" class="qty-display">0</span>
-      <button class="plus" data-id="hydrating facial mist">+</button>
+      <button class="minus" data-id="hydrating_facial_mist">-</button>
+      <span id="qty-hydrating_facial_mist" class="qty-display">0</span>
+      <button class="plus" data-id="hydrating_facial_mist">+</button>
     </div>
   </div>
 
   <div class="photo-card">
-    <img src="gambar2.jpg" alt="Brightening Serum">
-    <div><strong>Brightening Serum</strong></div>
+    <img src="gambar2.jpg" alt="Acne Serum">
+    <div><strong>Acne Serum</strong></div>
     <div class="counter">
-      <button class="minus" data-id="brightening serum">-</button>
-      <span id="qty-brightening serum" class="qty-display">0</span>
-      <button class="plus" data-id="brightening serum">+</button>
+      <button class="minus" data-id="acne_serum">-</button>
+      <span id="qty-acne_serum" class="qty-display">0</span>
+      <button class="plus" data-id="acne_serum">+</button>
     </div>
   </div>
 
@@ -117,9 +117,9 @@
     <img src="gambar3.jpg" alt="Acne Spot Treatment">
     <div><strong>Acne Spot Treatment</strong></div>
     <div class="counter">
-      <button class="minus" data-id="acne spot treatment">-</button>
-      <span id="qty-acne spot treatment" class="qty-display">0</span>
-      <button class="plus" data-id="acne spot treatment">+</button>
+      <button class="minus" data-id="acne_spot_treatment">-</button>
+      <span id="qty-acne_spot_treatment" class="qty-display">0</span>
+      <button class="plus" data-id="acne_spot_treatment">+</button>
     </div>
   </div>
 
@@ -127,9 +127,9 @@
     <img src="gambar4.jpg" alt="Glow Night Cream">
     <div><strong>Glow Night Cream</strong></div>
     <div class="counter">
-      <button class="minus" data-id="glow night cream">-</button>
-      <span id="qty-glow night cream" class="qty-display">0</span>
-      <button class="plus" data-id="glow night cream">+</button>
+      <button class="minus" data-id="glow_night_cream">-</button>
+      <span id="qty-glow_night_cream" class="qty-display">0</span>
+      <button class="plus" data-id="glow_night_cream">+</button>
     </div>
   </div>
   
@@ -137,9 +137,9 @@
     <img src="gambar5.jpg" alt="Daily UV Protection SPF 35">
     <div><strong>Daily UV Protection SPF 35</strong></div>
     <div class="counter">
-      <button class="minus" data-id="daily uv protection spf 35">-</button>
-      <span id="qty-daily uv protection spf 35" class="qty-display">0</span>
-      <button class="plus" data-id="daily uv protection spf 35">+</button>
+      <button class="minus" data-id="daily_uv_protection_spf_35">-</button>
+      <span id="qty-daily_uv_protection_spf_35" class="qty-display">0</span>
+      <button class="plus" data-id="daily_uv_protection_spf_35">+</button>
     </div>
   </div>
 </div>
@@ -153,51 +153,52 @@
 
 <script>
   const quantities = {
-    hydrating facial mist: 0,
-    brightening serum: 0,
-    acne spot treatment: 0,
-    glow night cream: 0,
-    daily uv protection spf 35: 0,
-  }
+  'hydrating_facial_mist': 0,
+  'acne_serum': 0,
+  'acne_spot_treatment': 0,
+  'glow_night_cream': 0,
+  'daily_uv_protection_spf_35': 0,
+}
 
   // Tombol tambah
   document.querySelectorAll('.plus').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const id = btn.dataset.id
-      quantities[id]++
-      document.getElementById(qty-${id}).textContent = quantities[id]
-    })
+  btn.addEventListener('click', () => {
+    const id = btn.dataset.id
+    quantities[id]++
+    document.getElementById(`qty-${id}`).textContent = quantities[id]
   })
+})
 
   // Tombol kurang
   document.querySelectorAll('.minus').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const id = btn.dataset.id
-      if (quantities[id] > 0) {
-        quantities[id]--
-        document.getElementById(qty-${id}).textContent = quantities[id]
-      }
-    })
+  btn.addEventListener('click', () => {
+    const id = btn.dataset.id
+    if (quantities[id] > 0) {
+      quantities[id]--
+      document.getElementById(`qty-${id}`).textContent = quantities[id]
+    }
   })
+})
 
   // Tombol Checkout
   function checkout() {
-    const list = document.getElementById('checkoutList')
-    list.innerHTML = '<h2>Checkout:</h2>'
-    let any = false
+  const list = document.getElementById('checkoutList')
+  list.innerHTML = '<h2>Checkout:</h2>'
+  let any = false;
 
-    for (const id in quantities) {
-      if (quantities[id] > 0) {
-        const name = id.charAt(0).toUpperCase() + id.slice(1)
-        list.innerHTML += `<p><strong>${name}</strong> — ${quantities[id]} pcs</p>`
-        any = true
-      }
-    }
-
-    if (!any) {
-      list.innerHTML += '<p>Masih kosong, tapi peluang cantikmu terbuka lebar✨</p>'
+  for (const id in quantities) {
+    if (quantities[id] > 0) {
+      // Convert id ke nama readable
+      const name = id.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+      list.innerHTML += `<p><strong>${name}</strong> — ${quantities[id]} pcs</p>`
+      any = true;
     }
   }
+
+  if (!any) {
+    list.innerHTML += '<p>Masih kosong, tapi peluang cantikmu terbuka lebar✨</p>'
+  }
+}
 
   // Tombol Batal Checkout
   function cancelCheckout() {
