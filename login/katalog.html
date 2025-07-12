@@ -165,7 +165,7 @@
     btn.addEventListener('click', () => {
       const id = btn.dataset.id
       quantities[id]++
-      document.getElementById(`qty-${id}`).textContent = quantities[id]
+      document.getElementById(qty-${id}).textContent = quantities[id]
     })
   })
 
@@ -175,7 +175,7 @@
       const id = btn.dataset.id
       if (quantities[id] > 0) {
         quantities[id]--
-        document.getElementById(`qty-${id}`).textContent = quantities[id]
+        document.getElementById(qty-${id}).textContent = quantities[id]
       }
     })
   })
