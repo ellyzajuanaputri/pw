@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Katalog Wardah Beauty</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .photo-card {
+      background: white;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .counter {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .counter button {
+      width: 30px;
+      height: 30px;
+      font-size: 18px;
+      border: none;
+      background-color: #222;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .qty-display {
+      min-width: 30px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .checkout-area {
+      margin-top: 30px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .checkout-area button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .checkout-btn {
+      background-color: #000;
+      color: white;
+    }
+
+    .cancel-btn {
+      background-color: #ccc;
+      color: #000;
+    }
+
+    .checkout-list {
+      margin-top: 30px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+<h1>Rawat kulitmu dengan formula alami dan teknologi terkini💖 </h1>
+<p>Kulit sehat tinggal klik lagi~ Ayo selesaikan pesananmu!</p>
+
+<div class="gallery">
+  <div class="photo-card">
+    <img src="gambar1.jpg" alt="Hydrating Facial Mist">
+    <div><strong>Hydrating Facial Mist</strong></div>
+    <div class="counter">
+      <button class="minus" data-id="hydrating facial mist">-</button>
+      <span id="qty-hydrating facial mist" class="qty-display">0</span>
+      <button class="plus" data-id="hydrating facial mist">+</button>
+    </div>
+  </div>
+
+  <div class="photo-card">
+    <img src="gambar2.jpg" alt="Brightening Serum">
+    <div><strong>Brightening Serum</strong></div>
+    <div class="counter">
+      <button class="minus" data-id="brightening serum">-</button>
+      <span id="qty-brightening serum" class="qty-display">0</span>
+      <button class="plus" data-id="brightening serum">+</button>
+    </div>
+  </div>
+
+  <div class="photo-card">
+    <img src="gambar3.jpg" alt="Acne Spot Treatment">
+    <div><strong>Acne Spot Treatment</strong></div>
+    <div class="counter">
+      <button class="minus" data-id="acne spot treatment">-</button>
+      <span id="qty-acne spot treatment" class="qty-display">0</span>
+      <button class="plus" data-id="acne spot treatment">+</button>
+    </div>
+  </div>
+
+  <div class="photo-card">
+    <img src="gambar4.jpg" alt="Glow Night Cream">
+    <div><strong>Glow Night Cream</strong></div>
+    <div class="counter">
+      <button class="minus" data-id="glow night cream">-</button>
+      <span id="qty-glow night cream" class="qty-display">0</span>
+      <button class="plus" data-id="glow night cream">+</button>
+    </div>
+  </div>
+  
+  <div class="photo-card">
+    <img src="gambar5.jpg" alt="Daily UV Protection SPF 35">
+    <div><strong>Daily UV Protection SPF 35</strong></div>
+    <div class="counter">
+      <button class="minus" data-id="daily uv protection spf 35">-</button>
+      <span id="qty-daily uv protection spf 35" class="qty-display">0</span>
+      <button class="plus" data-id="daily uv protection spf 35">+</button>
+    </div>
+  </div>
+</div>
+
+<div class="checkout-area">
+  <button class="checkout-btn" onclick="checkout()">Checkout</button>
+  <button class="cancel-btn" onclick="cancelCheckout()">Batal Checkout</button>
+</div>
+
+<div class="checkout-list" id="checkoutList"></div>
+
+<script>
+  const quantities = {
+    winter: 0,
+    karina: 0,
+    giselle: 0,
+    ningning: 0
+  }
+
+  // Tombol tambah
+  document.querySelectorAll('.plus').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.id
+      quantities[id]++
+      document.getElementById(`qty-${id}`).textContent = quantities[id]
+    })
+  })
+
+  // Tombol kurang
+  document.querySelectorAll('.minus').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.id
+      if (quantities[id] > 0) {
+        quantities[id]--
+        document.getElementById(`qty-${id}`).textContent = quantities[id]
+      }
+    })
+  })
+
+  // Tombol Checkout
+  function checkout() {
+    const list = document.getElementById('checkoutList')
+    list.innerHTML = '<h2>Checkout:</h2>'
+    let any = false
+
+    for (const id in quantities) {
+      if (quantities[id] > 0) {
+        const name = id.charAt(0).toUpperCase() + id.slice(1)
+        list.innerHTML += `<p><strong>${name}</strong> — ${quantities[id]} pcs</p>`
+        any = true
+      }
+    }
+
+    if (!any) {
+      list.innerHTML += '<p>Masih kosong, tapi peluang cantikmu terbuka lebar✨</p>'
+    }
+  }
+
+  // Tombol Batal Checkout
+  function cancelCheckout() {
+    for (const id in quantities) {
+      quantities[id] = 0
+      document.getElementById(`qty-${id}`).textContent = '0'
+    }
+
+    document.getElementById('checkoutList').innerHTML = ''
+  }
+</script>
+
+</body>
+</html>
