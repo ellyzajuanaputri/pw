@@ -1,17 +1,130 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Katalog Produk - Wardah</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Produk Wardah</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="header">
-    <h1>Katalog Produk Wardah</h1>
-    <button onclick="logout()">Logout</button>
+<div class="profile-container">
+  <div class="header-bg"></div>
+
+  <div class="profile-photo-wrapper">
+    <img src="profile.jpg" alt="profile" class="profile-photo" />
   </div>
-  <div id="produk-container">Memuat produk...</div>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script src="script.js"></script>
+
+  <div class="header-text">
+    <h1>WARDAH</h1>
+    <p class="subtitle">Hi, Ladies</p>
+    <p>Inspiring Beauty for Every Moment • <a href="https://www.instagram.com/wardahbeauty/">our ig</a></p>
+    <p><strong>Made In</strong> — Indonesia</p>
+  </div>
+
+  <div class="action-buttons">
+
+
+    <button id="KatalogBt">Katalog</button>
+<button id="logoutBtn">Logout</button>
+
+  </div>
+
+  <div id="content"></div>
+
+<div id="æspa" class="content-card">
+  <h3 style="font-size: 28px;"><strong>æspa</strong></h3>
+  <div id="produk-list">
+    <p>Selamat datang di dunia kecantikan alami bersama Wardah, brand kecantikan halal terdepan di Indonesia. Temukan rangkaian produk terbaik kami yang diformulasikan dengan teknologi terkini dan bahan berkualitas tinggi untuk menunjang penampilanmu setiap hari.</p>
+  </div>
+</div>
+
+  <div class="content-card">
+    <h3 style="font-size: 28px;"><strong>Sosial Media</strong></h3>
+    <ul>
+      <li><strong>instagram :</strong> https://www.instagram.com/wardahbeauty/</li>
+      <li><strong>twitter :</strong> https://www.x.com/wardahbeauty</li>
+    </ul>
+  </div>
+</div>
+
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+const SUPABASE_URL = 'https://ekvmvhqsvtmlyvjaxnql.supabase.co'
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVrdm12aHFzdnRtbHl2amF4bnFsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk1NTgxMTUsImV4cCI6MjA2NTEzNDExNX0.Ea-sGsQkBuaSeUv5zh_pqR_qGHTQMdhfqFo5ZZFCpks'
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+const content = document.getElementById('content')
+
+// Coba login manual (bisa diganti pakai form)
+async function login() {
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email: 'user@example.com', // ganti dengan akun terdaftar
+    password: 'password123'     // ganti sesuai user
+  })
+
+  if (error) {
+    alert('Login gagal: ' + error.message)
+    return
+  }
+
+  loadData()
+}
+
+async function logout() {
+  await supabase.auth.signOut()
+  content.innerHTML = '<p>Logout berhasil.</p>'
+}
+
+// Load data hanya milik user yang login
+async function loadData() {
+  const {
+    data: { user }
+  } = await supabase.auth.getUser()
+
+  if (!user) {
+
+    content.innerHTML = '<p>Silakan login untuk melihat data.</p>'
+    return
+  }
+
+
+
+
+  const { data, error } = await supabase
+    .from('web3')
+    .select('*')
+    .order('id')
+
+  if (error) {
+    alert('Error loading data: ' + error.message)
+    return
+  }
+
+  let out = ''
+  data.forEach(row => {
+    out += `
+      <div class="content-card">
+        <h2>${row.judul}</h2>
+        <p>${row.isi}</p>
+      </div>
+    `
+  })
+
+  content.innerHTML = out
+
+}
+
+
+document.getElementById('KatalogBtn').addEventListener('click', () => {window.location.href = 'katalog.html'})
+document.getElementById('logoutBtn').addEventListener('click', logout)
+
+
+window.addEventListener('DOMContentLoaded', async () => {
+  const { data: { user } } = await supabase.auth.getUser()
+  if (user) loadData()
+})
+</script>
+
 </body>
-</html>
+    </html>
