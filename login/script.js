@@ -3,7 +3,6 @@ const supabase = supabase.createClient(
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVrdm12aHFzdnRtbHl2amF4bnFsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk1NTgxMTUsImV4cCI6MjA2NTEzNDExNX0.Ea-sGsQkBuaSeUv5zh_pqR_qGHTQMdhfqFo5ZZFCpks'
 );
 
-// LOGIN
 async function login() {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
@@ -16,7 +15,6 @@ async function login() {
   }
 }
 
-// CEK LOGIN + TAMPILKAN PRODUK
 async function loadProduk() {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) {
@@ -46,13 +44,11 @@ async function loadProduk() {
   });
 }
 
-// LOGOUT
 async function logout() {
   await supabase.auth.signOut();
   window.location.href = 'index.html';
 }
 
-// Router otomatis
 const path = location.pathname;
 if (path.includes('akses.html')) loadProduk();
 if (path.includes('logout.html')) logout();

@@ -1,123 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ellyza Juana Putri</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Katalog Produk - Glad2Glow</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="profile-container">
-  <div class="header-bg"></div>
-
-  <div class="profile-photo-wrapper">
-    <img src="profile2.jpg" alt="profile" class="profile-photo" />
+  <div class="header">
+    <h1>Katalog Produk Glad2Glow</h1>
+    <button onclick="logout()">Logout</button>
   </div>
-
-  <div class="header-text">
-    <h1>Ellyza Juana Putri</h1>
-    <p class="subtitle">She/Her • Engineer</p>
-    <p>Bogor, Indonesia • <a href="https://ellyzajuanaputri.github.io/pw/web/">ellyzajuanaputri.github.io</a></p>
-    <p><strong>Informatika</strong> — Universitas IPWIJA</p>
-  </div>
-
-  <div class="action-buttons">
-
-
-    <button id="loginBtn">Login untuk akses data</button>
-<button id="logoutBtn">Logout</button>
-
-  </div>
-
-  <div id="content"></div>
-
-  <div class="content-card">
-    <h3>Sosial Media <small></small></h3>
-    <ul>
-      <li><strong>linkedin :</strong> http://linkedin.com/in/ellyza-juana-putri</li>
-      <li><strong>instagram :</strong> llyz.jn</li>
-    </ul>
-  </div>
-</div>
-
-<script type="module">
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
-
-const SUPABASE_URL = 'https://ekvmvhqsvtmlyvjaxnql.supabase.co'
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVrdm12aHFzdnRtbHl2amF4bnFsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk1NTgxMTUsImV4cCI6MjA2NTEzNDExNX0.Ea-sGsQkBuaSeUv5zh_pqR_qGHTQMdhfqFo5ZZFCpks'
-
-const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-const content = document.getElementById('content')
-
-// Coba login manual (bisa diganti pakai form)
-async function login() {
-  const { data, error } = await supabase.auth.signInWithPassword({
-    email: 'user@example.com', // ganti dengan akun terdaftar
-    password: 'password123'     // ganti sesuai user
-  })
-
-  if (error) {
-    alert('Login gagal: ' + error.message)
-    return
-  }
-
-  loadData()
-}
-
-async function logout() {
-  await supabase.auth.signOut()
-  content.innerHTML = '<p>Logout berhasil.</p>'
-}
-
-// Load data hanya milik user yang login
-async function loadData() {
-  const {
-    data: { user }
-  } = await supabase.auth.getUser()
-
-  if (!user) {
-
-    content.innerHTML = '<p>Silakan login untuk melihat data.</p>'
-    return
-  }
-
-
-
-
-  const { data, error } = await supabase
-    .from('produk')
-    .select('*')
-    .order('id')
-
-  if (error) {
-    alert('Error loading data: ' + error.message)
-    return
-  }
-
-  let out = ''
-  data.forEach(row => {
-    out += `
-      <div class="content-card">
-        <h2>${row.judul}</h2>
-        <p>${row.isi}</p>
-      </div>
-    `
-  })
-
-  content.innerHTML = out
-
-}
-
-
-document.getElementById('loginBtn').addEventListener('click', login)
-document.getElementById('logoutBtn').addEventListener('click', logout)
-
-
-window.addEventListener('DOMContentLoaded', async () => {
-  const { data: { user } } = await supabase.auth.getUser()
-  if (user) loadData()
-})
-</script>
-
+  <div id="produk-container">Memuat produk...</div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
