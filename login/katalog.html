@@ -228,71 +228,12 @@
     <input type="radio" name="payment" value="qris"> Bayar dengan QRIS
   </label>
 
-  <div id="qris-container" class="qris-box">
-    <p>Scan QRIS berikut untuk bayar:</p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/QRIS_logo.svg" alt="QRIS" width="200" />
-  </div>
-
-  <button class="pay-btn" onclick="prosesPembayaran()">Selesaikan Pembayaran</button>
+  <!-- Ganti bagian QRIS-container ini -->
+<div id="qris-container" class="qris-box">
+  <p>Scan QRIS berikut untuk bayar:</p>
+  <img id="qris-img" src="" alt="QRIS" width="200" />
+  <p id="qris-note"></p>
 </div>
-
-<style>
-  .checkout-section {
-    background: #ffffff;
-    padding: 25px;
-    margin-top: 40px;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-
-  .checkout-section h2 {
-    color: #333
-    margin-bottom: 20px
-  }
-
-  .payment-option {
-    display: block
-    margin: 10px 0
-    font-size: 16px
-  }
-
-  .qris-box {
-    margin-top: 20px
-    display: none
-    animation: fadeIn 0.6s ease-in-out
-  }
-
-  .pay-btn {
-    background: #d53c8a
-    color: #fff
-    border: none
-    padding: 12px 20px
-    border-radius: 8px
-    margin-top: 20px
-    cursor: pointer
-    transition: background 0.3s ease
-  }
-
-  .pay-btn:hover {
-    background: #b52f76
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0
-      transform: scale(0.95)
-    }
-
-    to {
-      opacity: 1
-      transform: scale(1)
-    }
-  }
-</style>
 
 <script>
   const radios = document.querySelectorAll('input[name="payment"]')
@@ -316,10 +257,7 @@
       alert("📱 QRIS terpilih.\nSilakan scan QR yang ditampilkan untuk menyelesaikan pembayaran.")
     }
   }
-</script>
 
-
-<script>
   const products = {
     hydrating_facial_mist: { name: "Hydrating Facial Mist", price: 30000 },
     acne_serum: { name: "Acne Serum", price: 36000 },
@@ -327,9 +265,9 @@
     glow_night_cream: { name: "Glow Night Cream", price: 43000 },
     daily_uv_protection_spf_35: { name: "Daily UV Protection SPF 35", price: 37000 },
     brightening_serum: { name: "Brightening Serum", price: 45000 },
-    facial_wash: { name: "Facial Wash", price: 52000 }, 
-    essence_toner: { name: "Essence Toner", price: 32000 }, 
-    miccelar_water: { name: "Micellar Water", price: 38000 }, 
+    facial_wash: { name: "Facial Wash", price: 52000 },
+    essence_toner: { name: "Essence Toner", price: 32000 },
+    miccelar_water: { name: "Micellar Water", price: 38000 },
     glow_day_cream: { name: "Glow Day Cream", price: 31000 }
   }
 
@@ -340,10 +278,22 @@
     glow_night_cream: 0,
     daily_uv_protection_spf_35: 0,
     brightening_serum: 0,
-    facial_wash: 0, 
-    essence_toner: 0, 
-    miccelar_water: 0, 
+    facial_wash: 0,
+    essence_toner: 0,
+    miccelar_water: 0,
     glow_day_cream: 0
+  }
+
+  // Fungsi untuk update QRIS berdasarkan total
+  function updateQRIS(total) {
+    const qrImg = document.getElementById('qris-img')
+    const qrNote = document.getElementById('qris-note')
+
+    const basePaymentUrl = 'https://linkpembayaran.com?amount=' + total
+    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(basePaymentUrl)}&size=200x200`
+
+    qrImg.src = qrUrl
+    qrNote.textContent = `Total yang harus dibayar: Rp${total.toLocaleString()}`
   }
 
   // Tombol tambah
@@ -386,6 +336,11 @@
       list.innerHTML += '<p>Masih kosong, tapi peluang cantikmu terbuka lebar✨</p>'
     } else {
       list.innerHTML += `<hr><p><strong>Total: Rp${total.toLocaleString()}</strong></p>`
+
+      const selectedPayment = document.querySelector('input[name="payment"]:checked').value
+      if (selectedPayment === 'qris') {
+        updateQRIS(total)
+      }
     }
   }
 
@@ -395,8 +350,11 @@
       document.getElementById(`qty-${id}`).textContent = '0'
     }
     document.getElementById('checkoutList').innerHTML = ''
+
+    // Reset QRIS tampilan
+    const qrImg = document.getElementById('qris-img')
+    const qrNote = document.getElementById('qris-note')
+    qrImg.src = ''
+    qrNote.textContent = ''
   }
 </script>
-
-</body>
-</html>
