@@ -144,6 +144,61 @@
   </div>
 </div>
 
+  <div class="photo-card">
+    <img src="gambar6.jpg" alt="Brightening Serum">
+    <div><strong>Brightening Serum</strong></div>
+    <div class="counter">
+      <button class="minus" data-id="brightening_serum">-</button>
+      <span id="brightening_serum" class="qty-display">0</span>
+      <button class="plus" data-id="brightening_serum">+</button>
+    </div>
+  </div>
+</div>
+
+  <div class="photo-card">
+    <img src="gambar7.jpg" alt="Facial Wash">
+    <div><strong>Facial Wash</strong></div>
+    <div class="counter">
+      <button class="minus" data-id="facial_wash">-</button>
+      <span id="facial_wash" class="qty-display">0</span>
+      <button class="plus" data-id="facial_wash">+</button>
+    </div>
+  </div>
+</div>
+
+  <div class="photo-card">
+    <img src="gambar8.jpg" alt="Essence Toner">
+    <div><strong>Essence Toner</strong></div>
+    <div class="counter">
+      <button class="minus" data-id="essence_toner">-</button>
+      <span id="essence_toner" class="qty-display">0</span>
+      <button class="plus" data-id="essence_toner">+</button>
+    </div>
+  </div>
+</div>
+
+  <div class="photo-card">
+    <img src="gambar9.jpg" alt="Micellar Water">
+    <div><strong>Micellar Water</strong></div>
+    <div class="counter">
+      <button class="minus" data-id="micellar_water">-</button>
+      <span id="micellar_water" class="qty-display">0</span>
+      <button class="plus" data-id="micellar_water">+</button>
+    </div>
+  </div>
+</div>
+
+  <div class="photo-card">
+    <img src="gambar10.jpg" alt="Glow Day Cream">
+    <div><strong>Glow Day Cream</strong></div>
+    <div class="counter">
+      <button class="minus" data-id="glow_day_cream">-</button>
+      <span id="glow_day_cream" class="qty-display">0</span>
+      <button class="plus" data-id="glow_day_cream">+</button>
+    </div>
+  </div>
+</div>
+
 <div class="checkout-area">
   <button class="checkout-btn" onclick="checkout()">Checkout</button>
   <button class="cancel-btn" onclick="cancelCheckout()">Batal Checkout</button>
@@ -152,13 +207,19 @@
 <div class="checkout-list" id="checkoutList"></div>
 
 <script>
-  const quantities = {
-  'hydrating_facial_mist': 0,
-  'acne_serum': 0,
-  'acne_spot_treatment': 0,
-  'glow_night_cream': 0,
-  'daily_uv_protection_spf_35': 0,
+  const products = {
+  hydrating_facial_mist: { name: "Hydrating Facial Mist", price: 30000, img: "gambar1.jpg" },
+  acne_serum: { name: "Acne Serum", price: 45000, img: "gambar2.jpg" },
+  acne_spot_treatment: { name: "Acne Spot Treatment", price: 35000, img: "gambar3.jpg" },
+  glow_night_cream: { name: "Glow Night Cream", price: 50000, img: "gambar4.jpg" },
+  daily_uv_protection_spf_35: { name: "Daily UV Protection SPF 35", price: 40000, img: "gambar5.jpg" },
+  brightening_serum: { name: "Brightening Serum", price: 48000, img: "gambar6.jpg" },
+  facial_wash: { name: "Facial Wash", price: 28000, img: "gambar7.jpg" },
+  essence_toner: { name: "Essence Toner", price: 32000, img: "gambar8.jpg" },
+  micellar_water: { name: "Micellar Water", price: 37000, img: "gambar9.jpg" },
+  glow_day_cream: { name: "Glow Day Cream", price: 49000, img: "gambar10.jpg" }
 }
+
 
   // Tombol tambah
   document.querySelectorAll('.plus').forEach(btn => {
