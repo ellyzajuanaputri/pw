@@ -22,13 +22,13 @@ a {
   background: white;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: relative;
 }
 
 .header-bg {
   height: 200px;
-  background-image: url('header.jpg');
+  background-image: url('https://ellyzajuanaputri.github.io/pw/login/header.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -42,7 +42,7 @@ a {
   border-radius: 50%;
   overflow: hidden;
   border: 4px solid white;
-  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 }
 
 .profile-photo-wrapper img {
@@ -92,7 +92,8 @@ a {
   border-radius: 10px;
 }
 
-.content-card h2, .content-card h3 {
+.content-card h2,
+.content-card h3 {
   margin-top: 0;
 }
 
