@@ -13,26 +13,8 @@
   <p id="msg" style="color:red"></p>
 
   <!-- GUNAKAN MODULE -->
-  <script type="module" src="script.js"></script>
-    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
-
-    const supabase = createClient(
-      'https://ekvmvhqsvtmlyvjaxnql.supabase.co',
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVrdm12aHFzdnRtbHl2amF4bnFsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk1NTgxMTUsImV4cCI6MjA2NTEzNDExNX0.Ea-sGsQkBuaSeUv5zh_pqR_qGHTQMdhfqFo5ZZFCpks'
-    );
-
-    document.getElementById('loginForm').addEventListener('submit', async function (e) {
-      e.preventDefault();
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
-      if (error) {
-        document.getElementById('msg').textContent = error.message;
-      } else {
-        window.location.href = 'akses.html';
-      }
-    });
+  <script type="module" src="scri  pt.js"></script>
+    
   </script>
 </body>
 </html>
